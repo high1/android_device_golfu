@@ -8,4 +8,4 @@
 /dev/block/mmcblk0p22                           /boot               emmc    defaults                                    defaults
 /dev/block/mmcblk0p21                           /recovery           emmc    defaults                                    defaults
 /dev/block/mmcblk0p17                           /misc               emmc    defaults                                    defaults 
-/devices/platform/msm_sdcc.4/mmc_host/mmc2      auto                auto    defaults                                    voldmanaged=sdcard0:auto,noemulatedsd
+/devices/platform/msm_sdcc.1/mmc_host/mmc1      /storage/sdcard0    auto    defaults                                    voldmanaged=sdcard0:auto,noemulatedsd
