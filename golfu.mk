@@ -227,9 +227,8 @@ PRODUCT_COPY_FILES += \
 # Prebuilt Modules
 PRODUCT_COPY_FILES += \
     device/htc/golfu/proprietary/lib/modules/ath6kl_sdio.ko:system/lib/modules/ath6kl_sdio.ko \
-    device/htc/golfu/proprietary/lib/modules/cfg80211.ko:system/lib/modules/cfg80211.ko
-#    device/htc/golfu/proprietary/lib/modules/compat.ko:system/lib/modules/compat.ko
-#    device/htc/golfu/proprietary/lib/modules/kineto_gan.ko:system/lib/modules/kineto_gan.ko
+    device/htc/golfu/proprietary/lib/modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
+    device/htc/golfu/proprietary/lib/modules/compat.ko:system/lib/modules/compat.ko
 
 # Proprietary Binaries
 PRODUCT_COPY_FILES += \
