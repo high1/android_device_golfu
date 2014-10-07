@@ -54,7 +54,7 @@ PRODUCT_PACKAGES += \
    
 # Camera
 PRODUCT_PACKAGES += \
-    camera.default \
+    camera.msm7x27a \
     libsurfaceflinger_client
 
 # NFC
@@ -197,7 +197,8 @@ PRODUCT_COPY_FILES += \
 # RIL
 PRODUCT_COPY_FILES += \
     device/htc/golfu/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
-    device/htc/golfu/proprietary/lib/libqc-opt.so:system/lib/libqc-opt.so
+    device/htc/golfu/proprietary/lib/libqc-opt.so:system/lib/libqc-opt.so \
+	device/htc/golfu/proprietary/lib/qmuxd:system/bin/qmuxd
 
 # NFC firmware
 PRODUCT_COPY_FILES += \
