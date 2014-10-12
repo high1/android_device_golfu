@@ -1,14 +1,14 @@
 [
-{
-"remote": "omnirom",
-"repository": "android_device_htc_golfu",
-"target_path": "device/htc/golfu",
-"revision": "android-4.4"
-},
-{
-"remote": "omnirom",
-"repository": "android_kernel_htc_golfu-1",
-"target_path": "kernel/htc/golfu",
-"revision": "android-4.4"
-}
+    {
+        "remote": "omnirom",
+        "repository": "android_device_htc_golfu",
+        "target_path": "device/htc/golfu",
+        "revision": "android-4.4"
+    },
+    {
+        "remote": "omnirom",
+        "repository": "android_kernel_htc_golfu-1",
+        "target_path": "kernel/htc/golfu",
+        "revision": "android-4.4"
+    }
 ]
