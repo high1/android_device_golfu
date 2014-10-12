@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/golfu.mk
+    $(LOCAL_DIR)/omni_golfu.mk
