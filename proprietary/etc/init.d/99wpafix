@@ -1,0 +1,6 @@
+echo ctrl_interface=wlan0>/data/misc/wifi/wpa_supplicant.conf
+echo update_config=1>>/data/misc/wifi/wpa_supplicant.conf
+echo fast_reauth=1>>/data/misc/wifi/wpa_supplicant.conf
+echo eapol_version=1>>/data/misc/wifi/wpa_supplicant.conf
+echo ap_scan=1>>/data/misc/wifi/wpa_supplicant.conf
+chmod 777 /data/misc/wifi/wpa_supplicant.conf
