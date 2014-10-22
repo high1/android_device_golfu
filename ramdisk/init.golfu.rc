@@ -193,6 +193,13 @@ on boot
 
     # Load kineto_gan.ko while booting
     insmod /system/lib/modules/kineto_gan.ko
+    
+    #SWAP
+    dd if=/dev/zero of=/mnt/emmc/.swap bs=1024 count=80m
+    mkswap /mnt/emmc/.swap
+    sync
+    swapon /mnt/emmc/.swap
+
 
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
