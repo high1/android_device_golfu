@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+LOCAL_PATH := device/htc/golfu
 BOARD_VENDOR := htc
 
 # Platform
@@ -59,7 +60,7 @@ TARGET_KERNEL_CONFIG := golfu_defconfig
 BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null androidboot.hardware=golfu
 BOARD_KERNEL_BASE := 0x13000000
 
-TARGET_SPECIFIC_HEADER_PATH := device/htc/golfu/include
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Audio
 TARGET_QCOM_AUDIO_VARIANT := caf
@@ -79,7 +80,7 @@ BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_otg/msm_hsusb/gadget/lun0/file"
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/golfu/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 # Wi-Fi
 BOARD_WLAN_DEVICE := ath6kl
@@ -114,7 +115,7 @@ BOARD_VENDOR_USE_AKMD := akm8975
 BOARD_VENDOR_QCOM_AMSS_VERSION := 6225
 
 # Graphics & CAF
-BOARD_EGL_CFG := device/htc/golfu/proprietary/lib/egl/egl.cfg
+BOARD_EGL_CFG := $(LOCAL_PATH)/proprietary/lib/egl/egl.cfg
 USE_OPENGL_RENDERER := true
 TARGET_QCOM_DISPLAY_VARIANT := caf
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
@@ -153,9 +154,9 @@ TARGET_PROVIDES_LIBLIGHT := true
 #SMALLER_FONT_FOOTPRINT := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/htc/golfu/ramdisk/fstab.golfu
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.golfu
 BOARD_HAS_NO_SELECT_BUTTON := true
-#TARGET_RECOVERY_INITRC := device/htc/golfu/recovery/init.recovery.golfu.rc
+#TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery/init.recovery.golfu.rc
 
 RECOVERY_VARIANT := omni
 
@@ -172,7 +173,7 @@ endif
 
 # TWRP
 ifeq ($(RECOVERY_VARIANT),omni)
-  TARGET_RECOVERY_INITRC := device/htc/golfu/recovery/init.twrp.rc
+  TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery/init.twrp.rc
   DEVICE_RESOLUTION := 320x480
   TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
   RECOVERY_GRAPHICS_USE_LINELENGTH := true
