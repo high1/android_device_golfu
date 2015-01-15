@@ -2,14 +2,6 @@
 # system.prop for golfu
 #
 
-# Telephony
-rild.libpath=/system/lib/libhtc_ril.so
-rild.libargs=-d /dev/smd0
-ril.subscription.types=NV,RUIM
-ro.baseband.arch = msm
-ro.telephony.ril_class=HTCQualcommRIL
-DEVICE_PROVISIONED=1
-
 # Bluetooth
 ro.bt.bdaddr_path=/data/misc/bluedroid/bdaddr
 

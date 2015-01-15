@@ -1,8 +1,3 @@
-#Full base telephony
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-#Languages
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # The GPS configuration appropriate for this device.
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
@@ -10,55 +5,9 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 # proprietary side of the device
 $(call inherit-product-if-exists, vendor/htc/golfu/golfu-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/golfu/overlay
-    
-# Graphics 
-PRODUCT_PACKAGES += \
-    copybit.msm7x27a \
-    gralloc.msm7x27a \
-    hwcomposer.msm7x27a \
-    memtrack.msm7x27a \
-    libgenlock \
-    liboverlay \
-    libtilerenderer \
-    libqdMetaData
-
-# Audio
-PRODUCT_PACKAGES += \
-    audio.primary.msm7x27a \
-    audio_policy.msm7x27a \
-    audio.a2dp.default \
-    audio.r_submix.default \
-    audio.usb.default \
-    libaudioutils \
-    libaudio-resampler
-
-    
-# Video decoding
-PRODUCT_PACKAGES += \
-    libstagefrighthw \
-    libOmxCore \
-    libdashplayer
-
- # GPS
-PRODUCT_PACKAGES += \
+# GPS
+#PRODUCT_PACKAGES += \
     gps.golfu
-    
-# Lights
-PRODUCT_PACKAGES += \
-    lights.golfu
-
-# Power HAL
-PRODUCT_PACKAGES += \
-    power.msm7x27a
-    
-#Health HAL
-PRODUCT_PACKAGES += \
-    libhealthd.msm7x27a
-   
-# Camera
-PRODUCT_PACKAGES += \
-    libsurfaceflinger_client
      
 # NFC
 PRODUCT_PACKAGES += \
@@ -127,11 +76,7 @@ PRODUCT_COPY_FILES += \
 # Media
 PRODUCT_COPY_FILES += \
     device/htc/golfu/proprietary/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/htc/golfu/proprietary/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml
+    device/htc/golfu/proprietary/etc/media_codecs.xml:system/etc/media_codecs.xml
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -174,26 +119,6 @@ PRODUCT_COPY_FILES += \
     device/htc/golfu/proprietary/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc
     #device/htc/golfu/proprietary/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl 
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.fw.bg_apps_limit=12 \
-    ro.config.max_starting_bg=6 \
-    ro.com.android.mobiledata=false \
-    ro.com.android.dataroaming=false
-
-# Disable JIT
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.jit.codecachesize=0
-
-# Disable atlas services on low-ram targets
-PRODUCT_PROPERTY_OVERRIDES += \
-    config.disable_atlas=true 
-
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
     ro.secure=0
-
-$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
-
-PRODUCT_AAPT_CONFIG := normal mdpi
-PRODUCT_AAPT_PREF_CONFIG := mdpi
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
