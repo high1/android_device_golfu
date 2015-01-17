@@ -1,4 +1,7 @@
 
+# Inherit common msm7x27a configs
+$(call inherit-product, device/htc/msm7x27a-common/msm7x27a.mk)
+
 # The GPS configuration appropriate for this device.
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
