@@ -11,24 +11,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
 # inherit from common msm7x27a
 -include device/htc/msm7x27a-common/BoardConfigCommon.mk
 
-LOCAL_PATH := device/htc/golfu
-BOARD_VENDOR := htc
-
 # Platform
 TARGET_BOOTLOADER_BOARD_NAME := golfu
-
-# Build
-#TARGET_SYSTEMIMAGE_USE_SQUISHER := true
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/htc/golfu
 TARGET_KERNEL_CONFIG := golfu_defconfig
-BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null androidboot.hardware=golfu
+BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null androidboot.hardware=golfu androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x13000000
 
 # UMS
@@ -38,7 +31,7 @@ BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_otg/msm_hsusb/gadget/lun0/file"
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/golfu/bluetooth
 
 # Wi-Fi
 BOARD_WLAN_DEVICE := ath6kl
@@ -56,7 +49,7 @@ WIFI_EXT_MODULE_NAME := "cfg80211"
 
 # GPS
 BOARD_USES_QCOM_GPS := true
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := golfu
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm7x27a
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 # FM Radio
@@ -66,26 +59,15 @@ BOARD_VENDOR_USE_AKMD := akm8975
 BOARD_VENDOR_QCOM_AMSS_VERSION := 6225
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.golfu
+TARGET_RECOVERY_FSTAB := device/htc/golfu/ramdisk/fstab.golfu
 BOARD_HAS_NO_SELECT_BUTTON := true
-#TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery/init.recovery.golfu.rc
+#TARGET_RECOVERY_INITRC := device/htc/golfu/recovery/init.recovery.golfu.rc
 
 RECOVERY_VARIANT := omni
 
-#Philz
-ifeq ($(RECOVERY_VARIANT),philz)
-  TARGET_COMMON_NAME := HTC Desire C
-  BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
-  BOARD_USE_NTFS_3G := false
-  TARGET_SCREEN_HEIGHT := 480
-  TARGET_SCREEN_WIDTH := 320
-  BOARD_HAS_LOW_RESOLUTION := true
-  BRIGHTNESS_SYS_FILE := "/sys/class/leds/lcd-backlight/brightness"
-endif
-
 # TWRP
 ifeq ($(RECOVERY_VARIANT),omni)
-  TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/recovery/init.twrp.rc
+  TARGET_RECOVERY_INITRC := device/htc/golfu/recovery/init.twrp.rc
   DEVICE_RESOLUTION := 320x480
   TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
   RECOVERY_GRAPHICS_USE_LINELENGTH := true
